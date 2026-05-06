@@ -1,0 +1,6 @@
+SELECT
+jenis,
+ST_Union (ST_Buffer(geom:: geography, 500)::geometry) AS b
+FROM fasilitas_publik
+WHERE jenis IN ('Masjid', 'Sekolah')
+GROUP BY jenis;
