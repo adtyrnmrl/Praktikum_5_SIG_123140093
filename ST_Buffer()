@@ -1,0 +1,18 @@
+SELECT
+nama,
+jenis,
+ROUND (
+ST_Area(ST_Buffer(geom::geography, 1000))::numeric / 1000000, 4
+) AS luas_buffer_km2
+FROM fasilitas_publik
+WHERE jenis = 'Masjid';
+
+
+SELECT
+nama,
+jenis,
+ROUND (
+ST_Area(ST_Buffer(geom::geography, 800)):: numeric / 1000000, 4
+) AS luas_buffer_km2
+FROM fasilitas_publik
+WHERE jenis = 'Sekolah"
