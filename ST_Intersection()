@@ -1,0 +1,5 @@
+CREATE TABLE zona_overlap AS
+SELECT
+'Area Terlayani Masjid & Sekolah' AS nama,
+ST_Intersection(m.geom, s.geom) AS geom FROM zona_masjid m, zona_sekolah s
+WHERE ST_Intersects(m.geom, s.geom);
